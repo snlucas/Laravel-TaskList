@@ -15,8 +15,8 @@ class CriarTabelaTarefas extends Migration
     {
         Schema::create('tarefas', function(Blueprint $table) {
             $table->id();
-            $table->tarefa('string');
-            $table->concluido('boolean')->default(false);
+            $table->string('tarefa');
+            $table->boolean('concluido')->default(false);
         });
     }
 
