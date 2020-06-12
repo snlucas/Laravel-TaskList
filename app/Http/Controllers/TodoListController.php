@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 class TodoListController extends Controller
 {
-    public function listarTarefas(){
+    public function index(Request $request)
+    {
+
         return view('tarefas.index');
     }
 }

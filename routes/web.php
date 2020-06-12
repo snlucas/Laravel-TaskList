@@ -13,4 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/tarefas', 'TodoListController@listarTarefas');
+Route::get('/tarefas', 'TodoListController@index');
