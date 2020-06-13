@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('cabecalho')
-    Tarefas
+    <h1 class="border-bottom mb-4">Tarefas</h1>
 @endsection
 
 @section('conteudo')
@@ -22,10 +22,21 @@
             </div>
         </div>
     </form>
+
     <hr>
+
     <ul class="list-group">
         @foreach ($tarefas as $tarefa)
-            <li class="list-group-item">{{ $tarefa }}</li>
+            <li class="list-group-item mb-0 border rounded">
+                <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck{{ $tarefa->id }}">
+                <label class="custom-control-label" for="customCheck{{ $tarefa->id }}">{{ $tarefa->tarefa }}</label>
+                </div>
+            </li>
         @endforeach
     </ul>
+
+    <script>
+
+    </script>
 @endsection
