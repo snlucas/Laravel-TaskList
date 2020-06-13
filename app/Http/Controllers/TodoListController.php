@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tarefas;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TodoListController extends Controller
 {
@@ -16,5 +17,11 @@ class TodoListController extends Controller
 
     public function store(Request $request)
     {
+        $tarefa = new Tarefas;
+        $tarefa->tarefa = $request->nome;
+
+        $tarefa->save();
+
+        return redirect()->route('listar-tarefas');
     }
 }

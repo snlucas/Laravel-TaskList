@@ -14,9 +14,9 @@ class CriarTabelaTarefas extends Migration
     public function up()
     {
         Schema::create('tarefas', function(Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('tarefa');
-            $table->boolean('concluido')->default(false);
+            $table->boolean('concluido')->default('false');
         });
     }
 

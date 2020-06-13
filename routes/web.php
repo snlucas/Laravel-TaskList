@@ -13,5 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/tarefas', 'TodoListController@index');
-Route::post('/criar-tarefa', 'TodoListController@store');
+Route::get('/tarefas', 'TodoListController@index')->name('listar-tarefas');
+Route::post('/tarefas/criar', 'TodoListController@store')->name('criar-tarefas');

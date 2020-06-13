@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="container">
-        @yield('cabecalho')
+        <div class="d-flex justify-content-center mt-2">
+            @yield('cabecalho')
+        </div>
         @yield('conteudo')
     </div>
 </body>
