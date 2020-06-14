@@ -37,4 +37,11 @@ class TodoListController extends Controller
 
         return redirect()->route('listar-tarefas');
     }
+
+    public function destroy($id){
+        $tarefa = Tarefas::find($id);
+        $tarefa->delete();
+
+        return redirect()->route('listar-tarefas');
+    }
 }
