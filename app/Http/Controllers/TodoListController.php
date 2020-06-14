@@ -8,9 +8,9 @@ use App\Http\Controllers\Controller;
 
 class TodoListController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $tarefas = Tarefas::all();
+        $tarefas = Tarefas::all()->reverse();
 
         return view('tarefas.index', compact('tarefas'));
     }
@@ -19,6 +19,19 @@ class TodoListController extends Controller
     {
         $tarefa = new Tarefas;
         $tarefa->tarefa = $request->nome;
+        $tarefa->save();
+
+        return redirect()->route('listar-tarefas');
+    }
+
+    public function update($id){
+        $tarefa = Tarefas::find($id);
+
+        if($tarefa->concluido === '1') {
+            $tarefa->concluido = 'false';
+        } else {
+            $tarefa->concluido = '1';
+        }
 
         $tarefa->save();
 

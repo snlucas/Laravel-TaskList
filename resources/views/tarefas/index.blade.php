@@ -27,11 +27,14 @@
 
     <ul class="list-group">
         @foreach ($tarefas as $tarefa)
-            <li class="list-group-item mb-0 border rounded">
-                <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="customCheck{{ $tarefa->id }}">
-                <label class="custom-control-label" for="customCheck{{ $tarefa->id }}">{{ $tarefa->tarefa }}</label>
-                </div>
+            <li class="list-group-item border rounded d-flex justify-content-start align-items-center">
+                @if($tarefa->concluido === '1')
+                    <input class="mr-2" type="checkbox" onclick='window.location.assign("/tarefas/criar/{{ $tarefa->id }}")' checked>
+                    <del>{{ $tarefa->tarefa }}</del>
+                @else
+                    <input class="mr-2" type="checkbox" onclick='window.location.assign("/tarefas/criar/{{ $tarefa->id }}")'>
+                    {{ $tarefa->tarefa }}
+                @endif
             </li>
         @endforeach
     </ul>

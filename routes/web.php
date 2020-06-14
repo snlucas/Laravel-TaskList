@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/tarefas', 'TodoListController@index')->name('listar-tarefas');
+Route::get('/tarefas/criar/{id}', 'TodoListController@update');
 Route::post('/tarefas/criar', 'TodoListController@store')->name('criar-tarefas');
